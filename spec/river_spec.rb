@@ -17,11 +17,25 @@ class TestRiver < MiniTest::Test
   end
 
   def test_default_number_of_fish
-    assert_equal(3, @river.river_fish_count)
+    assert_equal(0, @river.river_fish_count)
   end
 
   def test_river_fish_count
-    assert_equal(3, @river.river_fish_count)
+    assert_equal(0, @river.river_fish_count)
+  end
+
+  def test_can_add_fish
+    fish = Fish.new("Finn")
+    @river.add_fish(fish)
+    assert_equal(1, @river.river_fish_count)
+  end
+
+  def test_can_remove_fish
+    fish = Fish.new("Sam_Awn")
+    @river.add_fish(fish)
+    fish_removed = @river.remove_fish()
+    assert_equal(0, @river.river_fish_count)
+    assert_equal("Sam_Awn", fish_removed.name)
   end
 
 end

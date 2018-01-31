@@ -1,6 +1,6 @@
 class Bear
 
-  attr_accessor :name, :stomach
+  attr_accessor :name
 
   def initialize(name)
     @name = name
@@ -8,19 +8,16 @@ class Bear
   end
 
   def stomach_count()
-    return @stomach.count()
+    return @stomach.compact.count()
   end
 
   def take_fish(fish)
     @stomach << fish
-    # @fish_in_river
   end
 
   def roar()
     return "Roooaaarrr!!!"
   end
 
-
-end
 
 end
